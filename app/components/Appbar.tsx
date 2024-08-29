@@ -6,7 +6,7 @@ export function Appbar()    {
     return <div>
         <div className="flex justify-between">
             <div>
-                    SAAS-Music
+                    Rythm
             </div>
             <div>
                 {session.data?.user && <button className="m-2 p-2 bg-green-400" onClick={ () => signOut() }>SignOut</button>}
