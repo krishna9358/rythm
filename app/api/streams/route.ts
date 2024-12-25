@@ -30,7 +30,19 @@ export async function POST(req : NextRequest) {
         return NextResponse.json({
             message: "Error while adding the stream",
         },{
-            status: 500
+            status: 411
         });
     }
+}
+
+export async function GET(req:NextRequest){
+    const creatorId = req.nextUrl.searchParams.get("creatorId");
+    const streams = await prismaClient.stream.findMany({
+        where:{
+            userId : creatorId ?? ""
+        }
+    })
+    return NextResponse.json({
+        streams
+    })
 }
